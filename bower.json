@@ -1,12 +1,9 @@
 {
   "name": "hp-autonomy-frontend-js-testing-utils",
-  "version": "1.0.0",
   "authors": [
-      "Matthew Gordon <matthew.gordon2@hp.com>",
-      "Alyona Ivanova <alyona.ivanova@hp.com>",
-      "Alex Scown <alex.scown@hp.com>"
-  ],
-  "contributors": [
+    "Matthew Gordon <matthew.gordon2@hp.com>",
+    "Alyona Ivanova <alyona.ivanova@hp.com>",
+    "Alex Scown <alex.scown@hp.com>",
     "Luca Mandrioli <luca.mandrioli@hp.com>"
   ],
   "description": "Testing utilities for HP Autonomy Frontend products",
@@ -23,8 +20,11 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ]
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": "components/jquery#>=1.8.3",
+    "backbone": "~1.1.2",
+    "jasmine": "~1.3"
+  }
 }
