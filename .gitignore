@@ -3,3 +3,7 @@
 *.ipr
 *.iws
 *.iml
+
+# Dependencies
+node_modules/
+bower_components/

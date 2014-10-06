@@ -1,5 +1,5 @@
 {
-  "name": "hp-autonomy-frontend-testing-utils",
+  "name": "hp-autonomy-frontend-js-testing-utils",
   "version": "1.0.0",
   "devDependencies": {
     "grunt": "^0.4.5",
