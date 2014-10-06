@@ -7,6 +7,11 @@
     "Luca Mandrioli <luca.mandrioli@hp.com>"
   ],
   "description": "Testing utilities for HP Autonomy Frontend projects",
+  "main": [
+    "src/css/bootstrap-stub.css",
+    "src/js/backbone-mock-factory.js",
+    "src/js/jasmine-custom-matcher.js"
+  ],
   "moduleType": [
     "amd"
   ],
