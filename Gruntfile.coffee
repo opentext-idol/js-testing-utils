@@ -41,4 +41,5 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-jshint'
   grunt.loadNpmTasks 'grunt-coffeelint'
 
+  grunt.registerTask 'default', ['lint']
   grunt.registerTask 'lint', ['jshint', 'coffeelint']
