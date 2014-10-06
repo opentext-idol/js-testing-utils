@@ -1,12 +1,12 @@
 {
-  "name": "hp-autonomy-frontend-js-testing-utils",
+  "name": "hp-autonomy-js-testing-utils",
   "authors": [
     "Matthew Gordon <matthew.gordon2@hp.com>",
     "Alyona Ivanova <alyona.ivanova@hp.com>",
     "Alex Scown <alex.scown@hp.com>",
     "Luca Mandrioli <luca.mandrioli@hp.com>"
   ],
-  "description": "Testing utilities for HP Autonomy Frontend products",
+  "description": "Testing utilities for HP Autonomy Frontend projects",
   "moduleType": [
     "amd"
   ],
