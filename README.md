@@ -2,6 +2,11 @@
 
 Javascript testing utilities for Jasmine tests in HP Autonomy Frontend projects.
 
+## Usage
+    bower install hp-autonomy-js-testing-utils
+
+
+
 Contains:
 
 * a css file for suppressing Bootstrap modal animations in Jasmine
