@@ -7,6 +7,9 @@ define([
     'backbone'
 ], function(Backbone) {
 
+    // Check if we are using jasmine 2; if we are, spies have different behaviour
+    var jasmine2 = window.jasmine && parseInt(window.jasmine.version, 10) >= 2;
+
     var getStubHash = function(methods) {
         var output = {};
 
@@ -38,7 +41,13 @@ define([
                     Constructor.instances = [];
 
                     _.each(stubMethods, function(method) {
-                        Constructor.prototype[method].reset();
+                        var prototypeMethod = Constructor.prototype[method];
+
+                        if (jasmine2) {
+                            prototypeMethod.calls.reset();
+                        } else {
+                            prototypeMethod.reset();
+                        }
                     });
                 }
             });
