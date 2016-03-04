@@ -110,6 +110,16 @@
                     return result;
                 }
             }
+        },
+
+        toBeTheSameElementAs: function () {
+            return {
+                compare: function (actual, expected) {
+                    return {
+                        pass: $(actual).is(expected)
+                    };
+                }
+            }
         }
     };
 
