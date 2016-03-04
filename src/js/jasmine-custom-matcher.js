@@ -3,81 +3,118 @@
  * Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License.
  */
 
-(function(jasmine, $){
+(function (jasmine, $) {
+    var customMatchers = {
+        toBeStrictlyAscendingOrderedDropDown: function () {
+            return {
+                compare: function (actual) {
+                    var prev = Number.NEGATIVE_INFINITY;
 
-    jasmine.Matchers.prototype.toBeStrictlyAscendingOrderedDropDown = function(){
-        var prev = Number.NEGATIVE_INFINITY;
+                    return {
+                        pass: _.every(actual, function (option) {
+                            var optionValue = Number($(option).val());
+                            var isNewValueBigger = optionValue > prev;
+                            prev = optionValue;
 
-        return _.every(this.actual, function(option){
-            var optionValue = Number($(option).val());
-            var isNewValueBigger =  optionValue > prev;
-            prev = optionValue;
+                            return isNewValueBigger;
+                        })
+                    };
+                }
+            }
+        },
 
-            return isNewValueBigger;
-        });
-    };
+        toBeAscendingOrderedDropDown: function () {
+            return {
+                compare: function (actual) {
+                    var prev = Number.NEGATIVE_INFINITY;
 
-    jasmine.Matchers.prototype.toBeAscendingOrderedDropDown = function(){
-        var prev = Number.NEGATIVE_INFINITY;
+                    return {
+                        pass: _.every(actual, function (option) {
+                            var optionValue = Number($(option).val());
 
-        return _.every(this.actual, function(option){
-            var optionValue = Number($(option).val());
+                            var isNewValueBigger = optionValue >= prev;
+                            prev = optionValue;
 
-            var isNewValueBigger =  optionValue >= prev;
-            prev = optionValue;
+                            return isNewValueBigger;
+                        })
+                    };
+                }
+            }
+        },
 
-            return isNewValueBigger;
-        });
-    };
+        toBeStrictlyDescendingOrderedDropDown: function () {
+            return {
+                compare: function (actual) {
+                    var prev = Number.MAX_VALUE;
 
-    jasmine.Matchers.prototype.toBeStrictlyDescendingOrderedDropDown = function(){
-        var prev = Number.MAX_VALUE;
+                    return {
+                        pass: _.every(actual, function (option) {
+                            var optionValue = Number($(option).val());
+                            var isNewValueBigger = optionValue < prev;
+                            prev = optionValue;
 
-        return _.every(this.actual, function(option){
-            var optionValue = Number($(option).val());
-            var isNewValueBigger =  optionValue < prev;
-            prev = optionValue;
+                            return isNewValueBigger;
+                        })
+                    };
+                }
+            }
+        },
 
-            return isNewValueBigger;
-        });
-    };
+        toBeDescendingOrderedDropDown: function () {
+            return {
+                compare: function (actual) {
+                    var prev = Number.MAX_VALUE;
 
-    jasmine.Matchers.prototype.toBeDescendingOrderedDropDown = function(){
-        var prev = Number.MAX_VALUE;
+                    return {
+                        pass: _.every(actual, function (option) {
+                            var optionValue = Number($(option).val());
+                            var isNewValueBigger = optionValue <= prev;
+                            prev = optionValue;
 
-        return _.every(this.actual, function(option){
-            var optionValue = Number($(option).val());
-            var isNewValueBigger =  optionValue <= prev;
-            prev = optionValue;
+                            return isNewValueBigger;
+                        })
+                    };
+                }
+            }
+        },
 
-            return isNewValueBigger;
-        });
-    };
+        toHaveCallCount: function () {
+            return {
+                compare: function (actual, n) {
+                    if (!jasmine.isSpy(actual)) {
+                        throw new Error('Expected a spy, but got ' + jasmine.pp(actual) + '.');
+                    }
 
-    jasmine.Matchers.prototype.toHaveCallCount = function(n) {
-        if (!jasmine.isSpy(this.actual)) {
-            throw new Error('Expected a spy, but got ' + jasmine.pp(this.actual) + '.');
+                    var callCount = actual.calls ? actual.calls.count() : 0;
+
+                    var result = {};
+                    result.pass = callCount === n;
+                    result.message = result.pass ?
+                        'Expected spy ' + actual.identity + ' not to have been called ' + n + ' times.' :
+                        'Expected spy ' + actual.identity + ' to have been called ' + n + ' times, but it was called ' + callCount + ' times.';
+
+                    return result;
+                }
+            }
+        },
+
+        toBeInstanceOf: function () {
+            return {
+                compare: function (actual, obj) {
+                    var result = {};
+                    result.pass = (actual instanceof obj);
+                    result.message = result.pass ?
+                        'Expected ' + JSON.stringify(obj) + ' not to be an instance of ' + actual + '.' :
+                        'Expected ' + JSON.stringify(obj) + ' to be an instance of ' + actual + '.';
+
+                    return result;
+                }
+            }
         }
-
-        var callCount = this.actual.calls ? this.actual.calls.length : 0;
-
-        this.message = function() {
-            return [
-                'Expected spy ' + this.actual.identity + ' to have been called ' + n +' times, but it was called ' + callCount + ' times.',
-                'Expected spy ' + this.actual.identity + ' not to have been called ' + n +' times.'
-            ];
-        };
-
-        return callCount === n;
     };
 
-    jasmine.Matchers.prototype.toBeInstanceOf = function(obj) {
-        this.message = [
-            'Expected ' + JSON.stringify(obj) + ' to be an instance of ' + this.actual + '.',
-            'Expected ' + JSON.stringify(obj) + ' not to be an instance of ' + this.actual + '.'
-        ];
-
-        return (this.actual instanceof obj);
-    };
+    beforeEach(function () {
+        jasmine.addMatchers(customMatchers);
+    });
 
 }(window.jasmine, window.jQuery));
