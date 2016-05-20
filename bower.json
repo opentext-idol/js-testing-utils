@@ -28,8 +28,8 @@
     "bower_components"
   ],
   "dependencies": {
-    "jquery": "components/jquery#>=1.8.3",
-    "backbone": "~1.1.2",
-    "jasmine": ">=2"
+    "jquery": "components/jquery#1.8.3",
+    "backbone": "1.1.2",
+    "jasmine": "2.4"
   }
 }
