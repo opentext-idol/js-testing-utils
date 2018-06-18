@@ -6,7 +6,7 @@
     "Alex Scown <alex.scown@hpe.com>",
     "Luca Mandrioli <luca.mandrioli@hpe.com>"
   ],
-  "description": "Testing utilities for HP Autonomy Frontend projects",
+  "description": "Testing utilities for Micro Focus IDOL Frontend projects",
   "main": [
     "src/css/bootstrap-stub.css",
     "src/js/backbone-mock-factory.js",
