@@ -1,6 +1,6 @@
-# Micro Focus IDOL Frontend Javascript Testing Utils
+# OpenText IDOL Frontend Javascript Testing Utils
 
-Javascript testing utilities for Jasmine tests in Micro Focus Frontend projects.
+Javascript testing utilities for Jasmine tests in OpenText Frontend projects.
 
 ## Usage
     bower install hp-autonomy-js-testing-utils
@@ -17,6 +17,6 @@ This repo uses git-flow. develop is the development branch. master is the last k
 
 ##License
 
-(c) Copyright 2015-2018 Micro Focus or one of its affiliates.
+(c) Copyright 2015-2018 OpenText or one of its affiliates.
 
 Licensed under the MIT License (the "License"); you may not use this project except in compliance with the License.

@@ -1,12 +1,12 @@
 {
   "name": "hp-autonomy-js-testing-utils",
   "authors": [
-    "Matthew Gordon <matthew.gordon2@hpe.com>",
-    "Alyona Ivanova <alyona.ivanova@hpe.com>",
-    "Alex Scown <alex.scown@hpe.com>",
-    "Luca Mandrioli <luca.mandrioli@hpe.com>"
+    "Matthew Gordon",
+    "Alyona Ivanova",
+    "Alex Scown",
+    "Luca Mandrioli"
   ],
-  "description": "Testing utilities for Micro Focus IDOL Frontend projects",
+  "description": "Testing utilities for OpenText IDOL Frontend projects",
   "main": [
     "src/css/bootstrap-stub.css",
     "src/js/backbone-mock-factory.js",
