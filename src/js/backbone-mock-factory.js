@@ -13,8 +13,9 @@
  */
 
 define([
+    'underscore',
     'backbone'
-], function(Backbone) {
+], function(_, Backbone) {
 
     // Check if we are using jasmine 2; if we are, spies have different behaviour
     var jasmine2 = window.jasmine && parseInt(window.jasmine.version, 10) >= 2;
@@ -33,6 +34,7 @@ define([
         return function(stubMethods, prototypeProperties) {
             var prototypeStubs = getStubHash(stubMethods);
 
+            var Constructor
             var constructor = function() {
                 if (constructor === this.constructor) {
                     Constructor.instances.push(this);
@@ -43,7 +45,7 @@ define([
                 Parent.apply(this, arguments);
             };
 
-            var Constructor = Parent.extend(_.extend({
+            Constructor = Parent.extend(_.extend({
                 constructor: constructor
             }, prototypeStubs, prototypeProperties), {
                 reset: function() {

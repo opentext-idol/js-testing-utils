@@ -31,7 +31,6 @@ module.exports = (grunt) ->
         unused: true
         globals:
           define: false
-          _: false
           jasmine: false
     coffeelint:
       app: [
