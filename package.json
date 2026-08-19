@@ -1,6 +1,6 @@
 {
   "name": "hp-autonomy-js-testing-utils",
-  "version": "2.5.1",
+  "version": "3.0.0",
   "dependencies": {
     "backbone": "^1.2.3",
     "jasmine": "^2.99.0",

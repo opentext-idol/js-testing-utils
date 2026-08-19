@@ -12,27 +12,25 @@
  * information contained herein is subject to change without notice.
  */
 
-define(function(){
+var storage = {};
 
-    var storage = {};
+module.exports = {
 
-    return {
+    get: function(key){
+        return storage[key];
+    },
 
-        get: function(key){
-            return storage[key];
-        },
+    set: function(key, value){
+        storage[key] = value;
+    },
 
-        set: function(key, value){
-            storage[key] = value;
-        },
+    remove: function(key){
+        delete storage[key];
+    },
 
-        remove: function(key){
-            delete storage[key];
-        },
-
-        clear: function() {
-            storage = {};
-        }
-
+    clear: function() {
+        storage = {};
     }
-});
+
+};
+
