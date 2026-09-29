@@ -1,6 +1,9 @@
 {
   "name": "hp-autonomy-js-testing-utils",
-  "version": "3.0.0",
+  "repository": "https://gitlab.otxlab.net/idol/frontend/apps/java-libs/java-testing-utils",
+  "version": "3.0.1",
+  "private": true,
+  "engines": { "node": ">=20" },
   "dependencies": {
     "backbone": "^1.2.3",
     "jasmine": "^2.99.0",
