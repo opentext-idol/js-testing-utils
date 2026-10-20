@@ -16,22 +16,27 @@
     visibility: hidden;
 }
 
-.hide {
+.d-none {
     display: none;
 }
 
-.hidden {
+[hidden] {
+    display: none;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.opacity-0 {
     opacity: 0;
 }
 
-.fade.in {
+.fade.show {
     opacity: 1;
 }
 
 .fade {
     opacity: 0;
-    -webkit-transition: opacity 0.01s linear;
-    -moz-transition: opacity 0.01s linear;
-    -o-transition: opacity 0.01s linear;
     transition: opacity 0.01s linear;
 }
